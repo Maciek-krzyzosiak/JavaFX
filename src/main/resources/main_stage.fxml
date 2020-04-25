@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.Controller">
+    <GridPane hgap="20" xmlns:fx="http://javafx.com/fxml">
+        <Button fx:id="movies_button" onAction="#fillTable" text="Download movies" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Button fx:id="add_movie" onAction="#addMovie" text="Add Movie" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Button fx:id="delete_move" onAction="#deleteMovie" text="Delete movie" GridPane.columnIndex="4" />
+    </GridPane>
+        <TableView fx:id="movie_table" prefHeight="300" prefWidth="600" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <columns>
+                <TableColumn fx:id="movie_name" text="Movie name" />
+                <TableColumn fx:id="imbd_score" text="IMBD score" />
+            </columns>
+        </TableView>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+
+
+
+</GridPane>
