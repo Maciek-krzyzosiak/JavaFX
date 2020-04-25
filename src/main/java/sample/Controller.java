@@ -76,10 +76,6 @@ public class Controller implements Initializable {
         movie_table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
-    public void deleteMovie(ActionEvent event) {
-        movie_table.getItems().removeAll(movie_table.getSelectionModel().getSelectedItem());
-    }
-
     class CreateStage {
 
         private AddMovieController controller;

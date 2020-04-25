@@ -14,6 +14,7 @@ public class AddMovieController {
     public TextField title;
     public TextField rating;
     public Label title_label;
+    public Label movie_rating;
     private Movie movie;
 
     public void cancel(ActionEvent event) {
@@ -24,27 +25,29 @@ public class AddMovieController {
 
     public void addMovie(ActionEvent event) {
          movie = createMovie();
-         if(movie == null){
+         if(movie.getTitle().isEmpty()){
                 new Bounce(title_label).play();
                 new BounceIn(title_label).play();
          }
+         if(Math.abs(movie.getRating() - 10) > 10){
+                new Bounce(movie_rating).play();
+                new BounceIn(movie_rating).play();
+         }
+
          else{
              cancel(event);
          }
     }
     private Movie createMovie(){
         String movieTitle = title.getText();
-        if(title.getText().isEmpty()) return null;
-        if(rating.getText().isEmpty()) return null;
-
+        Double rating = -1.0;
         try {
-            double rating = Double.parseDouble(this.rating.getText());
-            return new Movie(movieTitle, rating);
+            rating = Double.parseDouble(this.rating.getText());
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
 
-        return null;
+        return new Movie(movieTitle, rating);
     }
 
     public Movie getMovie(){
